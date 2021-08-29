@@ -7,14 +7,48 @@ project(Deus)
 
 # Include directory
 set(INCROOT include)
+
 # Source directory
 set(SRCROOT src)
 
 # All sources
 set(SRC 
+    # Main
     ${SRCROOT}/Main.cpp
     ${INCROOT}/Game.hpp
-    ${SRCROOT}/Game.cpp)
+    ${SRCROOT}/Game.cpp
+    
+    # Debug
+    ${INCROOT}/Debug/DebugLevel.hpp
+    ${SRCROOT}/Debug/DebugLevel.cpp
+    ${INCROOT}/Debug/DebugEntity.hpp
+    ${SRCROOT}/Debug/DebugEntity.cpp
+
+    # Levels
+    ${INCROOT}/Levels/Level.hpp
+    ${SRCROOT}/Levels/Level.cpp
+    ${INCROOT}/Levels/GameLevel.hpp
+    ${SRCROOT}/Levels/GameLevel.cpp
+    ${INCROOT}/Levels/MenuLevel.hpp
+    ${SRCROOT}/Levels/MenuLevel.cpp
+
+    # Core
+    ${INCROOT}/Core/Window.hpp
+    ${SRCROOT}/Core/Window.cpp
+    ${INCROOT}/Core/Camera.hpp
+    ${SRCROOT}/Core/Camera.cpp
+    ${INCROOT}/Core/World.hpp
+    ${SRCROOT}/Core/World.cpp
+
+    # World
+    ${INCROOT}/World/TileMap.hpp
+    ${SRCROOT}/World/TileMap.cpp
+
+    # Entities
+    ${INCROOT}/Entities/Entity.hpp
+    ${SRCROOT}/Entities/Entity.cpp
+
+    )
 
 # Add executable
 add_executable(${PROJECT_NAME} ${SRC})

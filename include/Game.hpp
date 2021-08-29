@@ -1,6 +1,8 @@
 #pragma once
 
-#include <SFML/Graphics.hpp>
+#include <Core/Camera.hpp>
+#include <Core/Window.hpp>
+#include <Core/World.hpp>
 
 class Game
 {
@@ -11,10 +13,14 @@ public:
     void run();
 
 private:
-    sf::RenderWindow m_window;
-    sf::Event        m_event;
+    sf::Clock m_clock;
+    sf::Time  m_dt;
 
-    void event();
+    Window m_window;
+    Camera m_camera;
+    World  m_world;
+
+    void handleEvent();
     void update();
-    void render();
+    void draw();
 };

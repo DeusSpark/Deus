@@ -1,7 +1,9 @@
 #include <Game.hpp>
 
-Game::Game() : m_window(sf::VideoMode(200, 200), "SFML works!")
+Game::Game()
 {
+    m_window.setCamera(m_camera);
+    m_world.setCamera(m_camera);
 }
 
 Game::~Game()
@@ -10,30 +12,34 @@ Game::~Game()
 
 void Game::run()
 {
-    while (m_window.isOpen())
+    while (m_window.getRenderWindow().isOpen())
     {
-        event();
+        m_dt = m_clock.restart();
+        handleEvent();
         update();
-        render();
+        draw();
     }
 }
 
-void Game::event()
+void Game::handleEvent()
 {
-    while (m_window.pollEvent(m_event))
+    sf::Event event;
+    while (m_window.poolEvent(event))
     {
-        if (m_event.type == sf::Event::Closed)
-            m_window.close();
+        m_world.handleEvent(event);
     }
 }
 
 void Game::update()
 {
+    m_world.update(m_dt.asSeconds());
 }
 
-void Game::render()
+void Game::draw()
 {
     m_window.clear();
+
+    m_world.draw(m_window);
 
     m_window.display();
 }
