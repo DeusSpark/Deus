@@ -9,22 +9,22 @@
 
 class Window
 {
-public:
+    friend class Game;
+
+private:
     Window(const sf::Vector2u& size = sf::Vector2u(1024, 720), const std::string& title = "Deus");
     ~Window();
 
     bool poolEvent(sf::Event& event);
-    void draw(const sf::Drawable& object, const sf::RenderStates& states = sf::RenderStates::Default);
 
-    void close();
     void clear();
     void display();
 
-    const sf::RenderWindow& getRenderWindow() const;
+public:
+    void draw(const sf::Drawable& object, const sf::RenderStates& states = sf::RenderStates::Default);
 
-    void setCamera(Camera& camera);
+    void close();
 
 private:
     sf::RenderWindow m_renderWindow;
-    Camera*          m_camera;
 };

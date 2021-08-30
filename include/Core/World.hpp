@@ -5,11 +5,13 @@
 #include <Entities/Entity.hpp>
 #include <Levels/Level.hpp>
 
-class Camera;
+#include <Core/Camera.hpp>
 
 class World
 {
-public:
+    friend class Game;
+
+private:
     World();
     ~World();
 
@@ -17,15 +19,18 @@ public:
     void update(float dt);
     void draw(Window& window);
 
+public:
     void changeLevel(Level* level);
-    void setCamera(Camera& camera);
     void setSpectatorMode(bool spectatorMode);
 
+    static Camera& getCamera();
+
 private:
+    static Camera m_camera;
+
     Level* m_level;
 
     Entity* m_player;
 
-    Camera* m_camera;
-    bool    m_spectatorMode;
+    bool m_spectatorMode;
 };

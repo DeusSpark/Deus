@@ -1,9 +1,10 @@
 #include <Game.hpp>
 
+Window Game::m_window;
+World  Game::m_world;
+
 Game::Game()
 {
-    m_window.setCamera(m_camera);
-    m_world.setCamera(m_camera);
 }
 
 Game::~Game()
@@ -12,7 +13,7 @@ Game::~Game()
 
 void Game::run()
 {
-    while (m_window.getRenderWindow().isOpen())
+    while (m_window.m_renderWindow.isOpen())
     {
         m_dt = m_clock.restart();
         handleEvent();
@@ -42,4 +43,14 @@ void Game::draw()
     m_world.draw(m_window);
 
     m_window.display();
+}
+
+Window& Game::getWindow()
+{
+    return m_window;
+}
+
+World& Game::getWorld()
+{
+    return m_world;
 }

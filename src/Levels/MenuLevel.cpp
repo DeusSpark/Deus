@@ -10,10 +10,6 @@ MenuLevel::~MenuLevel()
 {
 }
 
-void MenuLevel::init()
-{
-}
-
 void MenuLevel::handleEvent(sf::Event& event)
 {
 }

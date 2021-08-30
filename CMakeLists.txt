@@ -21,12 +21,14 @@ set(SRC
     # Debug
     ${INCROOT}/Debug/DebugLevel.hpp
     ${SRCROOT}/Debug/DebugLevel.cpp
-    ${INCROOT}/Debug/DebugEntity.hpp
-    ${SRCROOT}/Debug/DebugEntity.cpp
+    ${INCROOT}/Debug/DebugShape.hpp
+    ${SRCROOT}/Debug/DebugShape.cpp
 
     # Levels
     ${INCROOT}/Levels/Level.hpp
     ${SRCROOT}/Levels/Level.cpp
+    ${INCROOT}/Levels/MapEditorLevel.hpp
+    ${SRCROOT}/Levels/MapEditorLevel.cpp
     ${INCROOT}/Levels/GameLevel.hpp
     ${SRCROOT}/Levels/GameLevel.cpp
     ${INCROOT}/Levels/MenuLevel.hpp
@@ -39,10 +41,12 @@ set(SRC
     ${SRCROOT}/Core/Camera.cpp
     ${INCROOT}/Core/World.hpp
     ${SRCROOT}/Core/World.cpp
-
-    # World
-    ${INCROOT}/World/TileMap.hpp
-    ${SRCROOT}/World/TileMap.cpp
+    
+    # GameCore
+    ${INCROOT}/GameCore/Tile.hpp
+    ${SRCROOT}/GameCore/Tile.cpp
+    ${INCROOT}/GameCore/TileMap.hpp
+    ${SRCROOT}/GameCore/TileMap.cpp
 
     # Entities
     ${INCROOT}/Entities/Entity.hpp
