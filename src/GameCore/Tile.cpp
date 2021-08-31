@@ -2,7 +2,7 @@
 
 #include <Core/Window.hpp>
 
-Tile::Tile()
+Tile::Tile() : m_needDraw(false)
 {
 }
 
@@ -12,7 +12,18 @@ Tile::~Tile()
 
 void Tile::draw(Window& window)
 {
-    window.draw(m_sprite);
+    if (m_needDraw)
+        window.draw(m_sprite);
+}
+
+bool Tile::needDraw() const
+{
+    return m_needDraw;
+}
+
+const sf::IntRect& Tile::getTextureRect() const
+{
+    return m_sprite.getTextureRect();
 }
 
 void Tile::setTexture(const sf::Texture& texture)
@@ -28,4 +39,9 @@ void Tile::setTextureRect(const sf::IntRect& rect)
 void Tile::setPosition(const sf::Vector2f& position)
 {
     m_sprite.setPosition(position);
+}
+
+void Tile::setNeedDraw(bool needDraw)
+{
+    m_needDraw = needDraw;
 }

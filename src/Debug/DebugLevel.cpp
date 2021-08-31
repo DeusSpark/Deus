@@ -4,7 +4,6 @@
 
 DebugLevel::DebugLevel()
 {
-    //"/home/deus/Документы/Deus/assets/Dungeon_Tileset.png"
     Game::getWorld().setSpectatorMode(true);
     m_tileMap.load("Dungeon_Tileset.txt");
 }

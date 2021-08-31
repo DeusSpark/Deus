@@ -66,3 +66,11 @@ find_package(SFML 2.5 COMPONENTS system window graphics REQUIRED)
 
 # Link SFML
 target_link_libraries(${PROJECT_NAME} PRIVATE sfml-system sfml-window sfml-graphics)
+
+
+add_custom_command(                                                                                                                                                       
+    TARGET ${PROJECT_NAME}
+    POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_directory
+    ${CMAKE_SOURCE_DIR}/assets
+    ${CMAKE_SOURCE_DIR}/build/assets)

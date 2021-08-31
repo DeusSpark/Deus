@@ -12,11 +12,12 @@ World::World()
 {
     m_spectatorMode = false;
 
-    m_level = new DebugLevel();
+    m_level = new MapEditorLevel();
 }
 
 World::~World()
 {
+    delete m_level;
 }
 
 void World::handleEvent(sf::Event& event)

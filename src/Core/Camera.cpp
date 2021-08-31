@@ -1,6 +1,6 @@
 #include <Core/Camera.hpp>
 
-Camera::Camera(const sf::Vector2f& size) : m_view(sf::Vector2f(), size), m_size(size), m_speed(250.0f), m_position(0.0f, 0.0f)
+Camera::Camera(const sf::Vector2f& resolution) : m_view(sf::Vector2f(), resolution), m_resolution(resolution), m_speed(250.0f), m_position(0.0f, 0.0f)
 {
 }
 
@@ -34,13 +34,18 @@ const sf::Vector2f& Camera::getPosition() const
     return m_position;
 }
 
-const sf::Vector2f& Camera::getSize() const
+const sf::Vector2f& Camera::getResolution() const
 {
-    return m_size;
+    return m_resolution;
+}
+
+float Camera::getAspectRation() const
+{
+    return float(m_size.x) / float(m_size.y);
 }
 
 void Camera::resize(const sf::Vector2f& size)
 {
-    float aspectRatio = float(size.x) / float(size.y);
-    m_view.setSize(m_size.x * aspectRatio, m_size.y);
+    m_size = size;
+    m_view.setSize(m_resolution.x * getAspectRation(), m_resolution.y);
 }

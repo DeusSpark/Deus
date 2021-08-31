@@ -2,6 +2,7 @@
 
 #include <SFML/Graphics/Texture.hpp>
 
+#include <sstream>
 #include <string>
 #include <vector>
 
@@ -16,16 +17,30 @@ public:
     ~TileMap();
 
     void load(const std::string& tileMapName);
+    void save();
+
     void draw(Window& window);
+
+    Tile& getTile(unsigned layer, unsigned y, unsigned x);
+
+    const sf::Texture& getTexture() const;
+    const sf::Vector2i getSizePerTile() const;
+    const sf::IntRect& getGlobalBounds() const;
 
 private:
     std::vector<std::vector<std::vector<Tile>>> m_tileMap;
 
+    std::string  m_tileMapName;
+    std::string  m_textureName;
     sf::Texture  m_texture;
     sf::Vector2f m_position;
     sf::Vector2i m_sizePerTile;
     sf::Vector2i m_size;
     sf::Vector2i m_renderDistance;
+
+    sf::IntRect m_globalBounds;
+
+    std::stringstream sstream;
 };
 
 // void TileMap::draw(Window& window)
