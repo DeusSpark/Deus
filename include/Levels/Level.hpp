@@ -6,8 +6,7 @@ class Event;
 }
 
 class Window;
-class World;
-class Camera;
+class GameState;
 
 class Level
 {
@@ -15,7 +14,10 @@ public:
     Level();
     virtual ~Level();
 
-    virtual void handleEvent(sf::Event& event) = 0;
-    virtual void update(float dt)              = 0;
-    virtual void draw(Window& window)          = 0;
+    virtual void handleEvent(sf::Event& event);
+    virtual void update(float dt);
+    virtual void draw(Window& window);
+
+protected:
+    GameState* m_gameState;
 };

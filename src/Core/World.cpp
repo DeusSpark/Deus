@@ -3,8 +3,6 @@
 #include <Game.hpp>
 
 #include <Core/Camera.hpp>
-#include <Debug/DebugLevel.hpp> //
-#include <Levels/MapEditorLevel.hpp>
 
 Camera World::m_camera;
 
@@ -12,12 +10,16 @@ World::World()
 {
     m_spectatorMode = false;
 
-    m_level = new MapEditorLevel();
+    m_level = &m_mapEditorLevel;
 }
 
 World::~World()
 {
-    delete m_level;
+}
+
+Level* World::getLevel()
+{
+    return m_level;
 }
 
 void World::handleEvent(sf::Event& event)
@@ -52,7 +54,6 @@ Camera& World::getCamera()
 
 void World::changeLevel(Level* level)
 {
-    delete m_level;
     m_level = level;
 }
 

@@ -27,8 +27,12 @@ set(SRC
     # Levels
     ${INCROOT}/Levels/Level.hpp
     ${SRCROOT}/Levels/Level.cpp
-    ${INCROOT}/Levels/MapEditorLevel.hpp
-    ${SRCROOT}/Levels/MapEditorLevel.cpp
+    ${INCROOT}/Levels/MapEditorLevel/MapEditorLevel.hpp
+    ${SRCROOT}/Levels/MapEditorLevel/MapEditorLevel.cpp
+    ${INCROOT}/Levels/MapEditorLevel/States/PickupTileState.hpp
+    ${SRCROOT}/Levels/MapEditorLevel/States/PickupTileState.cpp
+    ${INCROOT}/Levels/MapEditorLevel/States/CreateTileState.hpp
+    ${SRCROOT}/Levels/MapEditorLevel/States/CreateTileState.cpp
     ${INCROOT}/Levels/GameLevel.hpp
     ${SRCROOT}/Levels/GameLevel.cpp
     ${INCROOT}/Levels/MenuLevel.hpp
@@ -43,6 +47,8 @@ set(SRC
     ${SRCROOT}/Core/World.cpp
     
     # GameCore
+    ${INCROOT}/GameCore/GameState.hpp
+    ${SRCROOT}/GameCore/GameState.cpp
     ${INCROOT}/GameCore/Tile.hpp
     ${SRCROOT}/GameCore/Tile.cpp
     ${INCROOT}/GameCore/TileMap.hpp

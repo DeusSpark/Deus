@@ -6,6 +6,7 @@
 #include <Levels/Level.hpp>
 
 #include <Core/Camera.hpp>
+#include <Levels/MapEditorLevel/MapEditorLevel.hpp>
 
 class World
 {
@@ -20,6 +21,8 @@ private:
     void draw(Window& window);
 
 public:
+    Level* getLevel();
+
     void changeLevel(Level* level);
     void setSpectatorMode(bool spectatorMode);
 
@@ -29,6 +32,7 @@ private:
     static Camera m_camera;
 
     Level* m_level;
+    MapEditorLevel m_mapEditorLevel;
 
     Entity* m_player;
 
